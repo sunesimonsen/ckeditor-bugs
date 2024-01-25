@@ -35,6 +35,8 @@ const App = () => {
           },
         ],
       },
+      plugins: [Paragraph, Bold, Italic, Essentials],
+      toolbar: ["bold", "italic"],
     }),
     [],
   );
