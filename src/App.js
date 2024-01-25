@@ -4,11 +4,13 @@ import { ClassicEditor } from "@ckeditor/ckeditor5-editor-classic";
 import { Bold, Italic } from "@ckeditor/ckeditor5-basic-styles";
 import { Essentials } from "@ckeditor/ckeditor5-essentials";
 import { Paragraph } from "@ckeditor/ckeditor5-paragraph";
+import { GeneralHtmlSupport } from "@ckeditor/ckeditor5-html-support";
+import { FontBackgroundColor } from "@ckeditor/ckeditor5-font";
 
 import CKEditorInspector from "@ckeditor/ckeditor5-inspector";
 
 const initialContent = `
-  <h1>Hello world</h1>
+  <h1 style="background: coral">Hello world</h1>
 `;
 
 const App = () => {
@@ -24,8 +26,23 @@ const App = () => {
 
   const config = useMemo(
     () => ({
-      plugins: [Paragraph, Bold, Italic, Essentials],
+      plugins: [
+        Paragraph,
+        Bold,
+        Italic,
+        Essentials,
+        FontBackgroundColor,
+        GeneralHtmlSupport,
+      ],
       toolbar: ["bold", "italic"],
+      htmlSupport: {
+        allow: [
+          {
+            name: "h1",
+            styles: ["background"],
+          },
+        ],
+      },
     }),
     [],
   );
