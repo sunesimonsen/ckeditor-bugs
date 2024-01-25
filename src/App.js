@@ -5,6 +5,7 @@ import { Bold, Italic } from "@ckeditor/ckeditor5-basic-styles";
 import { Essentials } from "@ckeditor/ckeditor5-essentials";
 import { Paragraph } from "@ckeditor/ckeditor5-paragraph";
 import { GeneralHtmlSupport } from "@ckeditor/ckeditor5-html-support";
+import { FontBackgroundColor } from "@ckeditor/ckeditor5-font";
 
 import CKEditorInspector from "@ckeditor/ckeditor5-inspector";
 
@@ -25,7 +26,14 @@ const App = () => {
 
   const config = useMemo(
     () => ({
-      plugins: [Paragraph, Bold, Italic, Essentials, GeneralHtmlSupport],
+      plugins: [
+        Paragraph,
+        Bold,
+        Italic,
+        Essentials,
+        FontBackgroundColor,
+        GeneralHtmlSupport,
+      ],
       toolbar: ["bold", "italic"],
       htmlSupport: {
         allow: [
@@ -35,8 +43,6 @@ const App = () => {
           },
         ],
       },
-      plugins: [Paragraph, Bold, Italic, Essentials],
-      toolbar: ["bold", "italic"],
     }),
     [],
   );
